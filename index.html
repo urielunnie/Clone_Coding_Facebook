@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTsF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+
+    <title>Clone Coding Facebook</title>
+
+    <link rel="stylesheet" href="css/default.css">
+
+    <style>
+        .gnb {
+            width: 100%;
+            height: 54px;
+            border-bottom: 0.5px solid lightgray;
+            box-shadow: 0px 0px 5px 0px lightgray;
+        }
+
+        .gnb-left {
+            margin-left: 25px;
+        }
+
+        .search-box {
+            width: 230px;
+            height: 40px;
+
+            background-color: #f0f2f5;
+            border-radius: 30px;
+            margin-left: 10px;
+            padding: 0px 15px;
+        }
+
+        .search-box>i {
+            font-size: 16px;
+            color: gray;
+            margin-right: 5px;
+        }
+
+        .search-box>input {
+            border: none;
+            background-color: transparent;
+            outline: none;
+            width: 188px;
+            font-size: 18px;
+            margin-right: auto;
+        }
+
+        .gnb-middle {
+            margin-right: auto;
+            margin-left: 110px;
+        }
+
+        .nav-tab {
+            width: 120px;
+            height: 50px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .nav-tab:first-child {
+            border-bottom: 3px solid blue;
+        }
+
+        .nav-tab:hover {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        .nav-tab-right {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f2f2f2;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .nav-tab-right:last-child {
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .main {
+            padding-top: 20px;
+            padding-bottom: 50px;
+            align-items: flex-start;
+            background-color: #f2f2f2;
+        }
+
+        .main-left {
+            width: 360px;
+            margin-left: 10px;
+        }
+
+        .main-middle {
+            width: 700px;
+
+            margin-right: auto;
+            margin-left: 75px;
+        }
+
+        .main-left>li {
+            width: 350px;
+            height: 58px;
+            border-radius: 8px;
+            cursor: pointer;
+            padding-left: 15px;
+        }
+
+        .main-left>li:hover {
+            background-color: lightgray;
+        }
+
+        .main-left>li>span {
+            margin-right: auto;
+            margin-left: 10px;
+            font-size: 15px;
+        }
+
+        .main-left>li>div {
+            border-radius: 50%;
+            border: 0.5 solid gray;
+            overflow: hidden;
+            width: 36px;
+            height: 36px;
+        }
+
+        hr {
+            border: none;
+            border-top: 0.1px solid #d2d2d2;
+        }
+
+        .main-middle>.story {
+            background-color: white;
+            border-radius: 8px;
+            height: 290px;
+            width: 100%;
+            box-shadow: 0px 0px 5px 0px lightgray;
+        }
+
+        .main-middle>.create {
+            background-color: white;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 5px 0px lightgray;
+        }
+
+        .main-middle>.feed {
+            background-color: white;
+            border-radius: 8px;
+            height: 560px;
+            width: 100%;
+            box-shadow: 0px 0px 5px 0px lightgray;
+        }
+
+        .story-top {
+            height: 60px;
+            border-bottom: 0.5px solid #f2f2f2;
+        }
+
+        .story-top>div {
+            width: 200px;
+            height: 50px;
+            border-radius: 5px;
+            margin-right: 5px;
+            font-size: 15px;
+            font-weight: 600;
+            color: gray;
+            cursor: pointer;
+        }
+
+        .story-top>div:first-child {
+            color: blue;
+            border-bottom: 3px solid blue;
+            border-radius: 0px;
+        }
+
+        .story-top>div:hover {
+            background-color: #f2f2f2;
+        }
+
+        .story-bottom {
+            padding: 15px;
+        }
+
+        .profile {
+            width: 115px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 0.5px solid #f2f2f2;
+            box-shadow: 0px 0px 5px 0px lightgray;
+            position: relative;
+        }
+
+        .profile>span {
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-left: 20px;
+            margin-right: auto;
+            align-items: flex-start;
+        }
+
+        .description>li {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .description>li>img {
+            margin-right: 10px;
+        }
+
+        .plus {
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+            border-radius: 50%;
+            border: 2px solid white;
+            position: absolute;
+            top: 133px;
+        }
+
+        .profile-image {
+            background: linear-gradient(to bottom, transparent, lightgray), url(image/feed/profile.webp);
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .create {
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .create-profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 0.5px solid #f2f2f2;
+        }
+
+        .create-top {
+            border-bottom: 0.5px solid #f2f2f2;
+            padding-bottom: 10px;
+        }
+
+        .create-top>input {
+            background-color: #f2f2f2;
+            border-radius: 40px;
+            width: 618px;
+            height: 40px;
+            margin-left: 5px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            box-sizing: border-box;
+            text-indent: 10px;
+        }
+
+        .create-bottom>li {
+            width: 220px;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .create-bottom>li:hover {
+            background-color: #f2f2f2;
+        }
+
+        .create-bottom>li>span {
+            margin-left: 5px;
+            font-size: 14px;
+            color: gray;
+        }
+
+        .create>button {
+            width: 100%;
+            border-radius: 8px;
+            background-color: blue;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            height: 40px;
+            margin-top: 5px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        .create>button:hover {
+            background-color: darkblue;
+        }
+
+        .feed-profile {
+            width: 40px;
+            height: 40px;
+            border: 0.5px solid #f2f2f2;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .feed-more {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .feed-more:hover {
+            background-color: #f2f2f2;
+        }
+
+        .feed {
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .feed-top {
+            width: 100%;
+        }
+
+        .feed-name {
+            margin-left: 15px;
+            margin-right: auto;
+
+            align-items: flex-start;
+        }
+
+        .feed-name>span:first-child {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .feed-name>span:last-child {
+            font-size: 12px;
+            font-weight: normal;
+            color: gray;
+        }
+
+        .feed>p {
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 670px;
+        }
+
+
+        .feed>img {
+            width: calc(100% + 30px);
+        }
+
+        .feed-like {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #f2f2f2;
+            font-size: 13px;
+            color: gray;
+            padding-bottom: 10px;
+        }
+
+        .like-count {
+            margin-left: 5px;
+            margin-right: auto;
+        }
+
+        .feed-buttons>li {
+            width: 190px;
+            height: 40px;
+            border-radius: 8px;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        .feed-buttons>li:hover>img {
+            filter: brightness(0.95);
+        }
+
+        .feed-buttons>li>span {
+            margin-left: 5px;
+            font-size: 14px;
+            color: gray;
+            font-weight: bold;
+        }
+
+        .feed-buttons>li:hover {
+            background-color: #f2f2f2;
+        }
+
+        .menu-modal {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            width: 560px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px lightgray;
+            background-color: #f7f7fa;
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .menu-modal>span {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .menu-modal>.content {
+            align-items: flex-start;
+        }
+
+        .social {
+            width: 280px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0px 0px 3px 0px lightgray;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-right: 10px;
+        }
+
+        .modal-search-box {
+            width: 240px;
+            height: 40px;
+            background-color: #f2f2f2;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .modal-search-box>input {
+            width: 200px;
+            margin-left: 10px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-size: 14px;
+        }
+
+        .social>span {
+            font-size: 16px;
+            margin-right: auto;
+            margin-left: 5px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social>li {
+            border-radius: 8px;
+            margin-bottom: 10px;
+            width: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .social>li>img {
+            margin-right: 5px;
+        }
+
+        .social>li:hover {
+            background-color: #f2f2f2;
+        }
+
+        .social>li>div {
+            align-items: flex-start;
+            margin-right: auto;
+        }
+
+        .social>li>div>span {
+            font-size: 14px;
+        }
+
+        .social>li>div>p {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .modal-create {
+            width: 240px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0px 0px 3px 0px lightgray;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .modal-create>span {
+            font-size: 22px;
+            font-weight: bold;
+            margin-right: auto;
+            margin-bottom: 10px;
+        }
+
+        .modal-create>li {
+            width: 100%;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        .modal-create>hr {
+            width: 100%;
+        }
+
+        .modal-create>li:hover {
+            background-color: #f2f2f2;
+        }
+
+        .modal-create>li>div {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #e4e6eb;
+            overflow: hidden;
+        }
+
+        .modal-create>li>span {
+            margin-left: 5px;
+            margin-right: auto;
+        }
+
+        .account-modal {
+            position: fixed;
+            top: 55px;
+            right: 10px;
+            width: 360px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px lightgray;
+            background-color: white;
+            padding: 15px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .account-info {
+            width: 325px;
+            padding: 15px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px 0px lightgray;
+            border-radius: 8px;
+        }
+
+        .account-profile {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .account-profile>div {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #f2f2f2;
+            margin-right: 10px;
+        }
+
+        .account-profile>span {
+            margin-right: auto;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .account-info>hr {
+            width: 100%;
+        }
+
+        .account-info>div:last-child {
+            color: blue;
+            margin-right: auto;
+            height: 28px;
+            border-radius: 8px;
+            padding: 15px 5px;
+            align-items: flex-start;
+        }
+
+        .account-profile:hover {
+            background-color: #f2f2f2;
+        }
+
+        .account-info>div {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .account-info>div:hover {
+            background-color: #f2f2f2;
+        }
+
+        .account-modal>li>div {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #e4e6eb;
+        }
+
+        .account-modal>li>span {
+            margin-left: 5px;
+            margin-right: auto;
+        }
+
+        .account-modal>li {
+            padding: 10px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .account-modal>li:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        function showIcon() {
+            $('#search-icon').show()
+        }
+        function hideIcon() {
+            $('#search-icon').hide()
+        }
+
+        function showButton() {
+            $('#btn-post').show()
+        }
+
+        function postIt() {
+            alert('Posted successfully')
+            $('#btn-post').hide()
+        }
+
+        function menuModal() {
+            let status = $('#menu-modal').css('display')
+            if (status == 'block') {
+                $('#menu-modal').hide()
+            } else {
+                $('#menu-modal').show()
+            }
+        }
+
+        let is_menu = true;
+        function menu() {
+            if (is_menu) {
+                $('#gnb-menu').attr('src', 'image/gnb/10.png');
+                is_menu = false;
+            } else {
+                $('#gnb-menu').attr('src', 'image/gnb/6.png');
+                is_menu = true;
+            }
+        }
+
+        function accountModal() {
+            let status = $('#account-modal').css('display')
+            if (status == 'block') {
+                $('#account-modal').hide()
+            } else {
+                $('#account-modal').show()
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="gnb flex-row">
+        <div class="gnb-left flex-row">
+            <img width="40" src="image/logo.png">
+            <div class="search-box flex-row">
+                <i id="search-icon" class="bi bi-search"></i>
+                <input type="text" onfocus="hideIcon()" onblur="showIcon()">
+            </div>
+        </div>
+        <div class="gnb-middle flex-row">
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/1.png">
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/2.png">
+
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/3.png">
+
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/4.png">
+
+            </div>
+            <div class="nav-tab flex-row">
+                <img src="image/gnb/5.png">
+
+            </div>
+        </div>
+        <div class="gnb-right flex-row">
+            <div onclick="menuModal()" class="nav-tab-right flex-row">
+                <img id="gnb-menu" onclick="menu()" src="image/gnb/6.png">
+            </div>
+            <div class="nav-tab-right flex-row">
+                <img src="image/gnb/7.png">
+
+            </div>
+            <div class="nav-tab-right flex-row">
+                <img src="image/gnb/8.png">
+
+            </div>
+            <div onclick="accountModal()" class="nav-tab-right flex-row">
+                <img src="image/gnb/9.png">
+            </div>
+        </div>
+    </div>
+    <div class="main flex-row">
+        <div class="main-left">
+            <li class="flex-row">
+                <div class="flex-row">
+                    <img width="36px" src="image/feed/profile.webp">
+                </div>
+                <span>Gardian's girl</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/2.png">
+                </div>
+                <span>Find Friends</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/3.png">
+                </div>
+                <span>Groups</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/4.png">
+                </div>
+                <span>Memories</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/5.png">
+                </div>
+                <span>Watch</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/6.png">
+                </div>
+                <span>Saved</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/7.png">
+                </div>
+                <span>Pages</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/8.png">
+                </div>
+                <span>Events</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/9.png">
+                </div>
+                <span>Most Recent</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/10.png">
+                </div>
+                <span>Favorites</span>
+            </li>
+            <li class="flex-row">
+                <div>
+                    <img src="image/feed/seemore.png">
+                </div>
+                <span>See More</span>
+            </li>
+            <hr>
+        </div>
+        <div class="main-middle">
+            <div class="story">
+                <div class="story-top flex-row">
+                    <div class="flex-row">Stories</div>
+                    <div class="flex-row">Reels</div>
+                    <div class="flex-row">Rooms</div>
+                </div>
+                <div class="story-bottom flex-row">
+                    <div class="profile flex-col">
+                        <div class="profile-image"></div>
+                        <span>Create Story</span>
+                        <div class="plus flex-row">
+                            <img src="image/feed/12.png">
+                        </div>
+                    </div>
+                    <div class="description flex-col">
+                        <li class="flex-row">
+                            <img src="image/feed/13.png">
+                            <span>
+                                Share eveyday moments with friends and family.
+                            </span>
+                        </li>
+                        <li class="flex-row">
+                            <img src="image/feed/14.png">
+                            <span>
+                                Stories disappear after 24 hours.
+                            </span>
+                        </li>
+                        <li class="flex-row">
+                            <img src="image/feed/15.png">
+                            <span>
+                                Replies and reactions are private.
+                            </span>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="create flex-col">
+                <div class="create-top flex-row">
+                    <div class="create-profile">
+                        <img width="42px" src="image/feed/profile.webp">
+                    </div>
+                    <input onfocus="showButton()" onblur="hideButton()" type="text"
+                        placeholder="What's on your mind, Gardian's?">
+                </div>
+                <hr>
+                <div class="create-bottom flex-row">
+                    <li class="flex-row">
+                        <img src="image/feed/16.png">
+                        <span>Live Video</span>
+                    </li>
+                    <li class="flex-row">
+                        <img src="image/feed/17.png">
+                        <span>Photo/Video</span>
+                    </li>
+                    <li class="flex-row">
+                        <img src="image/feed/18.png">
+                        <span>Feeling/Activity</span>
+                    </li>
+                </div>
+                <button onclick="postIt()" id="btn-post">Post It</button>
+            </div>
+            <div class="feed flex-col">
+                <div class="feed-top flex-row">
+                    <div class="feed-profile flex-row">
+                        <img width="40" src="image/feed/profile2.jpg">
+                    </div>
+                    <div class="feed-name flex-col">
+                        <span>HAIKYUU!!</span>
+                        <span>Sponsored<img src="image/feed/21.png"></span>
+                    </div>
+                    <div class="feed-more flex-row">
+                        <img src="image/feed/20.png">
+                    </div>
+                </div>
+                <p>
+                    "I may be small, but I can jump!"
+                </p>
+                <img src="image/feed/post.jpg">
+                <div class="feed-like flex-row">
+                    <img src="image/feed/23.png">
+                    <span class="like-count">14.3K</span>
+                    <span>3.9k Shares</span>
+                </div>
+                <div class="feed-buttons flex-row">
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/24.png">
+                        <span>Like</span>
+                    </li>
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/25.png">
+                        <span>Comment</span>
+                    </li>
+                    <li class="flex-row">
+                        <img width="24" src="image/feed/26.png">
+                        <span>Share</span>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-modal" id="menu-modal">
+        <span>Menu</span>
+        <div class="content flex-row">
+            <div class="social flex-col">
+                <div class="modal-search-box flex-row">
+                    <i id="search-icon" class="bi bi-search"></i>
+                    <input type="text">
+                </div>
+                <span>Social</span>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/1.png">
+                    <div class="flex-col">
+                        <span>Events</span>
+                        <p>Organize or find events and thing other to do online and nearby.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/2.png">
+                    <div class="flex-col">
+                        <span>Find friends</span>
+                        <p>Search for friends or people you may know.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/3.png">
+                    <div class="flex-col">
+                        <span>Groups</span>
+                        <p>Connect with peoplw who share your interests.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/4.png">
+                    <div class="flex-col">
+                        <span>News Feed</span>
+                        <p>See relevant posts from people and Pages you follow.</p>
+                    </div>
+                </li>
+                <li class="flex-row">
+                    <img width="36" src="image/modal/5.png">
+                    <div class="flex-col">
+                        <span>Favorites</span>
+                        <p>View posts by Favorites.</p>
+                    </div>
+                </li>
+            </div>
+            <div class="modal-create flex-col">
+                <span>Create</span>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/6.png">
+                    </div>
+                    <span>Post</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/7.png">
+                    </div>
+                    <span>Story</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/8.png">
+                    </div>
+                    <span>Room</span>
+                </li>
+                <hr>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/9.png">
+                    </div>
+                    <span>Page</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/10.png">
+                    </div>
+                    <span>Ad</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/11.png">
+                    </div>
+                    <span>Group</span>
+                </li>
+                <li class="flex-row">
+                    <div class="flex-row">
+                        <img width="22" src="image/modal/12.png">
+                    </div>
+                    <span>Event</span>
+                </li>
+            </div>
+        </div>
+    </div>
+    <div class="account-modal" id="account-modal">
+        <div class="account-info flex-col">
+            <div class="account-profile flex-row">
+                <div class="flex-row">
+                    <img width="44" src="image/feed/profile.webp">
+                </div>
+                <span>Gardian's gf</span>
+            </div>
+            <hr>
+            <div class="flex-row">See All Profiles</div>
+        </div>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="20" src="image/modal/13.png">
+            </div>
+            <span>Settings & Privacy</span>
+            <img width="24" src="image/modal/18.png">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="20" src="image/modal/14.png">
+            </div>
+            <span>Help & Support</span>
+            <img width="20" src="image/modal/18.png">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="20" src="image/modal/15.png">
+            </div>
+            <span>Display & Accessbility</span>
+            <img width="20" src="image/modal/18.png">
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="20" src="image/modal/16.png">
+            </div>
+            <span>Give Feedback</span>
+        </li>
+        <li class="flex-row">
+            <div class="flex-row">
+                <img width="20" src="image/modal/17.png">
+            </div>
+            <span>Log Out</span>
+        </li>
+    </div>
+
+</body>
+
+</html>
